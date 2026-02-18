@@ -1,18 +1,17 @@
 class Solution:
     def secondHighest(self, s: str) -> int:
-        first=0
-        second=-1
+        first=float('-inf')
+        second=float('-inf')
         for i in range(len(s)):
             if (s[i].isdigit()):
                 if (int(s[i])>first):
-                    temp = first
-                    second=temp
-                    first = int(s[i])
+                    second = first
+                    first=int(s[i])
                 else:
-                    if(int(s[i])>second):
+                    if(int(s[i])>second and int(s[i])!=first):
                         second = int(s[i])
             
-        if(second==first):
+        if(second==float("-inf")):
             return -1
         else:
             return second
